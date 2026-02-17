@@ -12,7 +12,7 @@ const layout: { id: NodeId; col: string }[] = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen p-10">
+    <main className="min-h-screen p-10 bg-white">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold">0G Interactive Map</h1>
         <p className="mt-2 text-slate-600">
@@ -28,7 +28,9 @@ export default function Home() {
             >
               <div className="text-xl font-semibold">{nodes[id].title}</div>
               <div className="mt-2 text-slate-600">{nodes[id].oneLiner}</div>
-              <div className="mt-3 text-sm text-slate-500">Click to open →</div>
+              <div className="mt-3 text-sm text-slate-500">
+                Click to open →
+              </div>
             </Link>
           ))}
         </div>
