@@ -1,0 +1,16 @@
+{
+  "name": "lesson-1-deploy-contract",
+  "private": true,
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy.js --network og",
+    "read": "node scripts/read.js",
+    "demo:read": "npm run read",
+    "demo:deploy": "npm run compile && npm run deploy"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "network": "0G-Galileo-Testnet",
+  "chainId": 16602,
+  "rpcUrl": "https://evmrpc-testnet.0g.ai",
+  "pipelineRegistry": "0x2cf0Af431C53C5734CD6DFcA1DB5eE3D83Df5816"
+}
