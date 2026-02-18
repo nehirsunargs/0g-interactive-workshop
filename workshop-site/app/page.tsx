@@ -12,10 +12,10 @@ const layout: { id: NodeId; col: string }[] = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen p-10 bg-white">
+    <main className="min-h-screen p-10 bg-black">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold">0G Interactive Map</h1>
-        <p className="mt-2 text-slate-600">
+        <h1 className="text-3xl font-bold text-white">0G Interactive Map</h1>
+        <p className="mt-2 text-white">
           Click a component to learn it, run a real example, and troubleshoot common issues.
         </p>
 
@@ -24,11 +24,11 @@ export default function Home() {
             <Link
               key={id}
               href={`/${id}`}
-              className={`rounded-2xl border p-5 hover:shadow-sm transition ${col}`}
+              className={`rounded-2xl border border-white p-5 hover:shadow-sm transition ${col}`}
             >
-              <div className="text-xl font-semibold">{nodes[id].title}</div>
-              <div className="mt-2 text-slate-600">{nodes[id].oneLiner}</div>
-              <div className="mt-3 text-sm text-slate-500">
+              <div className="text-xl font-semibold text-white">{nodes[id].title}</div>
+              <div className="mt-2 text-white">{nodes[id].oneLiner}</div>
+              <div className="mt-3 text-sm text-white">
                 Click to open →
               </div>
             </Link>
