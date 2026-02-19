@@ -1,74 +1,59 @@
-export type NodeId = "chain" | "storage" | "compute" | "frontend" | "explorer" | "faucet";
+export type NodeId =
+  | "frontend"
+  | "chain"
+  | "storage"
+  | "compute"
+  | "explorer"
+  | "faucet";
 
-export const nodes: Record<
-  NodeId,
-  {
-    title: string;
-    oneLiner: string;
-    lessonFolder?: string;
-    runCommand?: string;
-    whatYouBuild: string[];
-    commonIssues: { problem: string; fix: string }[];
-  }
-> = {
+export type Node = {
+  id: NodeId;
+  title: string;
+  description: string;
+  icon: string;
+};
+
+export const nodes: Record<NodeId, Node> = {
+  frontend: {
+    id: "frontend",
+    title: "Frontend / dApps",
+    description:
+      "Open, autonomous applications that harness onchain AI with full composability.",
+    icon: "layout",
+  },
   chain: {
-    title: "Chain (Smart Contracts)",
-    oneLiner: "Deploy a contract that stores CIDs (pointers) to storage + compute outputs.",
-    lessonFolder: "lesson-1-deploy-contract",
-    runCommand: "npm run lesson:contract",
-    whatYouBuild: [
-      "Deploy a Registry contract",
-      "Write storageCid + resultCid",
-      "Read them back from the chain",
-    ],
-    commonIssues: [
-      { problem: "insufficient funds for gas", fix: "Use faucet, confirm correct network + wallet." },
-      { problem: "wrong chainId / RPC", fix: "Double-check RPC_URL + chain ID in Hardhat config." },
-    ],
+    id: "chain",
+    title: "0G Chain",
+    description:
+      "A modular AI-first blockchain with scalable execution and multi-consensus validation.",
+    icon: "link",
   },
   storage: {
+    id: "storage",
     title: "Storage",
-    oneLiner: "Upload large data off-chain and get a CID you can reference on-chain.",
-    lessonFolder: "lesson-2-upload-storage",
-    runCommand: "npm run lesson:storage",
-    whatYouBuild: ["Upload input.txt to 0G Storage", "Get CID", "Optionally write CID to contract"],
-    commonIssues: [
-      { problem: "upload timeout", fix: "Retry; check endpoint; try smaller file." },
-      { problem: "auth / env missing", fix: "Make sure .env is set and loaded." },
-    ],
+    description:
+      "Decentralized, AI-optimized storage with ultra-low costs and verifiable permanence.",
+    icon: "database",
   },
   compute: {
-    title: "Compute",
-    oneLiner: "Run heavy jobs (like summarization) off-chain, then store results back to storage.",
-    lessonFolder: "lesson-3-run-compute",
-    runCommand: "npm run lesson:compute",
-    whatYouBuild: ["Trigger compute job", "Poll status/logs", "Save output to storage + chain"],
-    commonIssues: [
-      { problem: "job stuck pending", fix: "Check network health; confirm job parameters; retry." },
-      { problem: "job failed", fix: "Read logs; reduce input size; verify config." },
-    ],
-  },
-  frontend: {
-    title: "Frontend",
-    oneLiner: "A simple UI that reads CIDs from the contract and fetches data from storage.",
-    lessonFolder: "lesson-5-frontend",
-    runCommand: "npm run lesson:frontend",
-    whatYouBuild: ["Fetch contract state", "Fetch storage content by CID", "Display nicely in UI"],
-    commonIssues: [
-      { problem: "CORS / fetch errors", fix: "Use correct gateway URL; check CID format." },
-      { problem: "contract reads fail", fix: "Confirm RPC + contract address." },
-    ],
+    id: "compute",
+    title: "Compute Network",
+    description:
+      "Trustless AI inference and compute, secured by decentralized infrastructure.",
+    icon: "cpu",
   },
   explorer: {
+    id: "explorer",
     title: "Explorer",
-    oneLiner: "Verify transactions, contracts, and job-related activity using the 0G explorer.",
-    whatYouBuild: ["Find your deploy tx", "Confirm contract address", "Share proof of activity"],
-    commonIssues: [{ problem: "can’t find tx", fix: "Confirm you’re on the right network (testnet vs mainnet)." }],
+    description:
+      "Inspect transactions, debug contracts, and monitor AI workloads on-chain.",
+    icon: "search",
   },
   faucet: {
+    id: "faucet",
     title: "Faucet",
-    oneLiner: "Get testnet tokens so you can pay gas for deployments and transactions.",
-    whatYouBuild: ["Request testnet tokens", "Verify wallet balance"],
-    commonIssues: [{ problem: "request fails", fix: "Try again later; check rate limits; use a different wallet." }],
+    description:
+      "Get testnet tokens to fund developer wallets and prototype faster.",
+    icon: "droplet",
   },
 };
