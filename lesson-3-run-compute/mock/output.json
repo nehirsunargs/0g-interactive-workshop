@@ -1,0 +1,10 @@
+{
+  "summary": "MOCK: This is a fallback summary used when compute is unavailable.",
+  "bullets": [
+    "MOCK: Bullet 1",
+    "MOCK: Bullet 2",
+    "MOCK: Bullet 3"
+  ],
+  "timestamp": "2026-02-19T00:00:00.000Z",
+  "mode": "mock-file"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "lesson-2-upload-storage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo": "node scripts/upload.js",
+    "set:input": "node scripts/setInputCid.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@0glabs/0g-ts-sdk": "^0.3.3",
+    "dotenv": "^17.3.1",
+    "ethers": "^6.13.1"
+  }
+}
