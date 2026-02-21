@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { nodes, type NodeId } from "@/lib/nodes";
 import { NodeCard } from "@/components/node-card";
 import { useEffect, useRef, useState, useCallback } from "react";

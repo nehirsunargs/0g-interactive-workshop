@@ -46,9 +46,12 @@ async function main() {
   const [tree, treeErr] = await zgFile.merkleTree();
   if (treeErr) throw new Error(`Merkle tree error: ${treeErr}`);
   if (!tree) throw new Error("Merkle tree creation returned empty result.");
-
+  console.log("🌳 Merkle root:", tree.rootHash());
+  
   // Upload (returns tx info including rootHash + txHash)
+  console.log("📤 Starting upload to indexer...");
   const [tx, uploadErr] = await indexer.upload(zgFile, RPC_URL, signer);
+  console.log("📥 Upload returned");
   await zgFile.close();
 
   if (uploadErr) throw new Error(`Upload error: ${uploadErr}`);
@@ -80,12 +83,3 @@ async function main() {
       null,
       2
     )
-  );
-
-  console.log("\nSaved:", outPath);
-}
-
-main().catch((err) => {
-  console.error("\n❌ Failed:", err?.message ?? err);
-  process.exit(1);
-});

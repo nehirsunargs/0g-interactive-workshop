@@ -55,3 +55,9 @@ logs/
 # ======================
 tmp/
 temp/
+
+
+lesson-2-upload-storage/artifacts/
+lesson-3-run-compute/artifacts/
+lesson-4-read-result/tmp/
+lesson-3-run-compute/tmp/

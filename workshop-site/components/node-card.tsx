@@ -33,9 +33,16 @@ export function NodeCard({ id, title, description, useCases, index }: NodeCardPr
   const Icon = ICONS[id];
   const num = String(index + 1).padStart(2, "0");
 
+  const externalUrls: Partial<Record<NodeId, string>> = {
+    explorer: "https://chainscan-galileo.0g.ai",
+    faucet: "https://faucet.0g.ai",
+  };
+
   return (
     <Link
-      href={`/${id}`}
+      href={externalUrls[id] || `/node/${id}`}
+      target={externalUrls[id] ? "_blank" : undefined}
+      rel={externalUrls[id] ? "noopener noreferrer" : undefined}
       className="group relative block w-full perspective-1000"
     >
       {/* 1. Outer Glow (Hover Only) */}
